@@ -69,7 +69,7 @@ export default function Navbar() {
                   </Text>
                 </Link>
               </Box>
-              <Box display={"flex"} gap={4}>
+              <Box display={"flex"} gap={4} alignItems={"center"}>
                 <Link href="#about">
                   <Text fontWeight={"bold"} fontSize={"3xl"}>
                     About
@@ -83,6 +83,19 @@ export default function Navbar() {
                 <Link href="#contact">
                   <Text fontWeight={"bold"} fontSize={"3xl"}>
                     Contact
+                  </Text>
+                </Link>
+                <Link href="task">
+                  <Text
+                    border={"2px"}
+                    p={2}
+                    paddingInline={4}
+                    rounded={"xl"}
+                    fontWeight={"bold"}
+                    fontSize={"3xl"}
+                    textAlign={"center"}
+                  >
+                    Login
                   </Text>
                 </Link>
               </Box>
