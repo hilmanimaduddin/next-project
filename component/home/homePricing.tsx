@@ -1,6 +1,17 @@
-import { Box, Text, Card } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Card,
+  useColorModeValue,
+  Stack,
+  List,
+  ListItem,
+  ListIcon,
+} from "@chakra-ui/react";
 import data from "../../json/dataprice.json";
 import FallingLetter from "../transition/fallingLetter";
+import { CheckIcon } from "@chakra-ui/icons";
+
 export default function HomePricing() {
   return (
     <Box
@@ -25,27 +36,40 @@ export default function HomePricing() {
         {data.map((item, index) => (
           <FallingLetter key={index} delay={index + 1}>
             <Card
-              key={index}
               w={"250px"}
               h={"400px"}
-              border={"1px"}
+              border={"2px"}
               boxShadow={"2xl"}
               p={2}
             >
               <Box>
-                <Text fontWeight={"bold"} fontSize={"2xl"}>
+                <Text
+                  fontSize={"xl"}
+                  fontWeight={500}
+                  bg={useColorModeValue("blue.50", "blue.900")}
+                  p={2}
+                  px={3}
+                  color={"blue.500"}
+                  rounded={"full"}
+                >
                   {item.name}
                 </Text>
-                <Text fontWeight={"bold"} fontSize={"2xl"}>
-                  ${item.price}
-                </Text>
-                <Box>
+                <Stack direction={"row"} align={"center"} justify={"center"}>
+                  <Text fontSize={"3xl"}>$</Text>
+                  <Text fontSize={"5xl"} fontWeight={800}>
+                    {item.price}
+                  </Text>
+                  <Text color={"gray.500"}>/year</Text>
+                </Stack>
+                <List p={2} spacing={3}>
                   {item.features.map((feature, index) => (
-                    <Text p={2} fontSize={"lg"} key={index}>
+                    <ListItem key={index}>
+                      <ListIcon as={CheckIcon} color="green.400" />
                       {feature}
-                    </Text>
+                    </ListItem>
                   ))}
-                </Box>
+                </List>
+                <Box></Box>
               </Box>
             </Card>
           </FallingLetter>

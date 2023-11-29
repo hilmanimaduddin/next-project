@@ -23,7 +23,14 @@ export default function Home() {
             <Image w={"full"} src={MySVG1.src} alt="" />
           </FromLeft>
         </Box>
-        <Box w={600} position={"absolute"} zIndex={-1} left={-200} top={530}>
+        <Box
+          display={["none", "none", "block"]}
+          w={600}
+          position={"absolute"}
+          zIndex={-1}
+          left={-200}
+          top={530}
+        >
           <FromLeft>
             <Image w={"full"} src={MySVG3.src} alt="" />
           </FromLeft>
@@ -31,9 +38,9 @@ export default function Home() {
         <Box
           zIndex={-1}
           position={"absolute"}
-          top={400}
+          top={[500, 450, 400]}
           right={-10}
-          width={[200, 400, 500, 600, 700]}
+          width={[400, 500, 600, 700]}
         >
           <FromRight>
             <Image w={"full"} src={MySVG.src} alt="" />
@@ -58,7 +65,7 @@ export default function Home() {
         <Box
           zIndex={-1}
           position={"absolute"}
-          top={1900}
+          top={[2700, 2400, 2200, 1900]}
           right={-300}
           width={700}
         >
