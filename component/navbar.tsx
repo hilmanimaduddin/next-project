@@ -1,24 +1,18 @@
 "use client";
 
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
   Flex,
-  Avatar,
   HStack,
-  Text,
   IconButton,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  useDisclosure,
-  useColorModeValue,
   Stack,
+  Text,
+  useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import Link from "next/link";
+import FallingLetter from "./transition/fallingLetter";
 
 interface Props {
   children: React.ReactNode;
@@ -51,49 +45,51 @@ export default function Navbar() {
 
   return (
     <Box px={4}>
-      <Flex h={20} alignItems={"center"} justifyContent={"space-between"}>
-        <IconButton
-          size={"md"}
-          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-          aria-label={"Open Menu"}
-          display={{ md: "none" }}
-          onClick={isOpen ? onClose : onOpen}
-        />
-        <HStack w={"100%"} spacing={8} alignItems={"center"}>
-          <HStack
-            as={"nav"}
-            justifyContent={"space-between"}
-            spacing={4}
-            display={{ base: "none", md: "flex" }}
-            width={"100%"}
-          >
-            <Box display={"flex"}>
-              <Link href="#">
-                <Text fontWeight={"bold"} fontSize={"3xl"}>
-                  Home
-                </Text>
-              </Link>
-            </Box>
-            <Box display={"flex"} gap={4}>
-              <Link href="#about">
-                <Text fontWeight={"bold"} fontSize={"3xl"}>
-                  About
-                </Text>
-              </Link>
-              <Link href="#pricing">
-                <Text fontWeight={"bold"} fontSize={"3xl"}>
-                  Pricing
-                </Text>
-              </Link>
-              <Link href="#contact">
-                <Text fontWeight={"bold"} fontSize={"3xl"}>
-                  Contact
-                </Text>
-              </Link>
-            </Box>
+      <FallingLetter>
+        <Flex h={20} alignItems={"center"} justifyContent={"space-between"}>
+          <IconButton
+            size={"md"}
+            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+            aria-label={"Open Menu"}
+            display={{ md: "none" }}
+            onClick={isOpen ? onClose : onOpen}
+          />
+          <HStack w={"100%"} spacing={8} alignItems={"center"}>
+            <HStack
+              as={"nav"}
+              justifyContent={"space-between"}
+              spacing={4}
+              display={{ base: "none", md: "flex" }}
+              width={"100%"}
+            >
+              <Box display={"flex"}>
+                <Link href="#">
+                  <Text fontWeight={"bold"} fontSize={"3xl"}>
+                    Home
+                  </Text>
+                </Link>
+              </Box>
+              <Box display={"flex"} gap={4}>
+                <Link href="#about">
+                  <Text fontWeight={"bold"} fontSize={"3xl"}>
+                    About
+                  </Text>
+                </Link>
+                <Link href="#pricing">
+                  <Text fontWeight={"bold"} fontSize={"3xl"}>
+                    Pricing
+                  </Text>
+                </Link>
+                <Link href="#contact">
+                  <Text fontWeight={"bold"} fontSize={"3xl"}>
+                    Contact
+                  </Text>
+                </Link>
+              </Box>
+            </HStack>
           </HStack>
-        </HStack>
-      </Flex>
+        </Flex>
+      </FallingLetter>
 
       {isOpen ? (
         <Box pb={4} display={{ md: "none" }}>

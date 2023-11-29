@@ -13,10 +13,14 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./*"]
-    }
+      "@/*": ["./*"],
+      "@testing-library/react": ["node_modules/@testing-library/react"],
+      "@testing-library/jest-dom": ["node_modules/@testing-library/jest-dom"]
+    },
+    "typeRoots": ["node_modules/@types", "./types"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "test/**.ts"],
   "exclude": ["node_modules"]
 }
